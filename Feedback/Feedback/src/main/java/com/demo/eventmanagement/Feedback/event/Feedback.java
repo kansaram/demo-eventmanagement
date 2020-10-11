@@ -1,34 +1,47 @@
 package com.demo.eventmanagement.Feedback.event;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EntityManager;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.PersistenceContext;
 import javax.validation.constraints.Size;
 
 import io.swagger.annotations.ApiModelProperty;
 
+@Entity
 public class Feedback {
+	
+	
 	
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Long id;
 	
 	@Size(max=5)
+	@Column(name="usefulness")
 	private int usefulness;
 	
 	@Size(max=5)
+	@Column(name="delivery")
 	private int delivery;
 	
 	@Size(max=5)
+	@Column(name="engage")
 	private int engage;
 	
 	@Size(max=5)
+	@Column(name="credit")
 	private int credit;
 	
 	@Size(max=5)
+	@Column(name="interest")
 	private int interest;
 	
 	@Size(max=2000, message="note should not be more then 2000 characters")
+	@Column(name="Responsenote")
 	private String Responsenote;
 	
 	@OneToOne
@@ -49,11 +62,11 @@ public class Feedback {
 		Responsenote = responsenote;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

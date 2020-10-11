@@ -2,6 +2,7 @@ package com.demo.eventmanagement.Event.entity;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,8 +10,11 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+@ApiModel(description="RegisteredEvent")
+@Entity
 public class RegisteredEvent {
 	
 	@Id

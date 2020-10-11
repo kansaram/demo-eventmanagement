@@ -1,2 +1,0 @@
-# demo-eventmanagement
-event management
