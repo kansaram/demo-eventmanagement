@@ -12,12 +12,14 @@ import com.demo.eventmanagement.Feedback.repository.UserRepository;
 @RestController
 public class FeedbackController {
 
-	@Autowired
-	private UserRepository userRepository;
+	
+	  @Autowired 
+	  private UserRepository userRepository;
+	 
 	
 	@PostMapping("/userFeedback/{user}/")
 	public void getFeedback(@RequestBody User user) {
-		
+	System.out.println("Inside Controller");	
 	  userRepository.save(user);
 		
 	}

@@ -1,36 +1,46 @@
 package com.demo.eventmanagement.Feedback.event;
 
 import javax.mail.Address;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EntityManager;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.PersistenceContext;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import io.swagger.annotations.ApiModelProperty;
 
+@Entity
 public class User {
 
+	
 	@Id
 	@GeneratedValue
 	private Long id;
 	
 	@Size(min=2, message="username should be atleast 2 characters")
 	@ApiModelProperty(notes="user to send invitation for the event")
+	@Column(name="user")
 	private String user;
 	
 	@NotNull(message="email adddress is mandatory")
 	@Email
 	@ApiModelProperty(notes="emailId of invited user")
+	@Column(name="emailId")
 	private Address emailId;
 	
 	@NotNull
 	@ApiModelProperty(notes="event Details for sending emails")
+	@Column(name="eventDetails")
 	private String eventDetails;
 	
 	@NotNull
 	@ApiModelProperty(notes="event Details for sending emails")
+	@Column(name="eventId")
 	private Long eventId;
 	
 	@OneToOne(mappedBy="user")
